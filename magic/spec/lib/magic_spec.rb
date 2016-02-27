@@ -4,14 +4,18 @@ require "magic"
 
 describe Potion do
 
-  it "can set name" do
-    potion = Potion.new(:name => 'Potion of Healing')
-    expect(potion.name).to match('Potion of Healing')
+  it "has default values" do
+    potion = Potion.new()
+
+    expect(potion.name).to match('Potion of unknown effect')
+    expect(potion.price).to eql(50)
   end
 
-  it "can set price" do
-    potion = Potion.new(:price => 50)
-    expect(potion.price).to eql(50)
+  it "can set name and price" do
+    potion = Potion.new(:name => 'Potion of Healing', :price => 100)
+
+    expect(potion.name).to match('Potion of Healing')
+    expect(potion.price).to eql(100)
   end
 
 end
